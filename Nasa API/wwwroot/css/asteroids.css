@@ -1,0 +1,24 @@
+﻿
+/*.bg-transparent {
+    background-color: #616161 !important;
+}
+
+.footer {
+    background-color: #616161;
+}*/
+
+.card {
+    margin-bottom: 1%;
+}
+
+a {
+    color: black;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: black;
+}
+
+.navbar-light .navbar-brand {
+    color: black !important
+}

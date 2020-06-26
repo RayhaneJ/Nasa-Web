@@ -1,0 +1,21 @@
+﻿@page
+@model Nasa_API.Pages.DonkiModel
+@{
+    ViewData["Title"] = "Donki";
+    IList<string> donkiEvents = (List<string>)TempData["donkiEvents"];
+}
+
+<link rel="stylesheet" href="~/css/donki.css" />
+
+<div class="card">
+    <div class="card-body shadow">
+        <form>
+            <div class="label">Search</div>
+            <ejs-dropdownlist id="events" width="270" dataSource="@donkiEvents"> </ejs-dropdownlist>
+            <div class="label" id="eventLabel">events from</div>
+            <ejs-datepicker id="startDate" width="130" value="DateTime.Now"></ejs-datepicker>
+            <div class="label">to</div>
+            <ejs-datepicker id="endDate" width="130" value="DateTime.Now"></ejs-datepicker>
+        </form>
+    </div>
+</div>

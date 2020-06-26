@@ -1,0 +1,46 @@
+﻿@page
+@model Nasa_API.Pages.AsteroidsModel
+@{
+    ViewData["Title"] = "Asteroids";
+    IList<NasaAsteroid> nasaAsteroids = (List<NasaAsteroid>)TempData["NasaAsteroids"];
+}
+
+<link rel="stylesheet" href="~/css/asteroids.css" />
+
+<div class="card">
+    <div class="card-body shadow">
+        Nearest asteroids of the week
+    </div>
+</div>
+<ejs-grid id="Grid" dataSource="@nasaAsteroids" allowSorting="true" allowFiltering="true" allowExcelExport="true" toolbarClick="toolbarClick" toolbar="@(new List<string>() { "ExcelExport", "PdfExport" })" allowPdfExport="true">
+    <e-grid-columns>
+        <e-grid-column field="Id" headerText="Nasa Id" textAlign="Left" width="90"></e-grid-column>
+        <e-grid-column field="Name" headerText="Name" width="90"></e-grid-column>
+        <e-grid-column field="Url" template="#template" headerText="Official web site" width="160" textAlign="Left"></e-grid-column>
+        <e-grid-column field="Magnitude" headerText="Magnitude" width="80"></e-grid-column>
+        <e-grid-column field="Diameter_In_Meters" headerText="Diameter in meters" width="80"></e-grid-column>
+        <e-grid-column field="Kilometers_Per_Second" headerText="Kilometers per hours" width="90"></e-grid-column>
+        <e-grid-column field="Miss_Distance_In_Kilometers" headerText="Miss distance in kilometers" width="110"></e-grid-column>
+    </e-grid-columns>
+</ejs-grid>
+
+<script id="template" type="text/x-template">
+    <div>
+        <a rel='nofollow' href="${Url}">${Url}</a>
+    </div>
+</script>
+
+<script>
+    function toolbarClick(args) {
+        var gridObj = document.getElementById("Grid").ej2_instances[0];
+        if (args.item.id === 'Grid_excelexport') {
+            gridObj.excelExport();
+        }
+        else {
+            if (args.item.id === 'Grid_pdfexport') {
+                gridObj.pdfExport();
+            }
+        }
+    }
+</script>
+
