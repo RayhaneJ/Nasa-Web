@@ -2,6 +2,11 @@
     margin-bottom: 1%;
 }
 
+.card-body {
+    display: flex;
+    align-items: center;
+}
+
 a {
     color: black;
 }
@@ -26,15 +31,31 @@ form {
     margin-right: 1.2%;
 }
 
-span {
-    margin-top: 0.5%;
-    height: 28px;
-}
-
 #eventLabel {
     display: inline-block;
     display: flex;
     align-items: center;
     margin-left: 1.2%;
     margin-right: 1.2%;
+}
+
+#submit {
+    margin-top: 0.4%;
+    height: 28px;
+    margin-left: 2%;
+    margin-right: 1.2%;
+}
+
+span {
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+}
+
+#container {
+    display:flex;
+    padding : 1%;
+    background: #F2F2F2;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 2px #fff inset, -1px -1px 2px #fff inset;
+    border-radius: 3px/6px;
 }

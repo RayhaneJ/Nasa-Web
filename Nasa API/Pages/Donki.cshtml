@@ -9,13 +9,51 @@
 
 <div class="card">
     <div class="card-body shadow">
-        <form>
-            <div class="label">Search</div>
-            <ejs-dropdownlist id="events" width="270" dataSource="@donkiEvents"> </ejs-dropdownlist>
-            <div class="label" id="eventLabel">events from</div>
-            <ejs-datepicker id="startDate" width="130" value="DateTime.Now"></ejs-datepicker>
-            <div class="label">to</div>
-            <ejs-datepicker id="endDate" width="130" value="DateTime.Now"></ejs-datepicker>
-        </form>
+        <div id="container">
+            <ejs-dropdownlist id="events" width="200" placeholder="Select event name" popupWidth="250" dataSource="@donkiEvents">            </ejs-dropdownlist>
+            <ejs-datepicker id="startDate" width="150" placeholder="Select event date"></ejs-datepicker>
+        </div>
+        <ejs-button id="submit" content="Search" cssClass="e-small"></ejs-button>
+
     </div>
 </div>
+
+@*<ejs-grid id="Grid" allowSorting="true" allowFiltering="true" allowExcelExport="true" toolbarClick="toolbarClick" toolbar="@(new List<string>() { "ExcelExport", "PdfExport" })" allowPdfExport="true">
+    <e-grid-columns>
+        <e-grid-column field="Id" headerText="Nasa Id" textAlign="Left" width="90"></e-grid-column>
+        <e-grid-column field="Name" headerText="Name" width="90"></e-grid-column>
+        <e-grid-column field="Url" template="#template" headerText="Official web site" width="160" textAlign="Left"></e-grid-column>
+        <e-grid-column field="Magnitude" headerText="Magnitude" width="80"></e-grid-column>
+        <e-grid-column field="Diameter_In_Meters" headerText="Diameter in meters" width="80"></e-grid-column>
+        <e-grid-column field="Kilometers_Per_Second" headerText="Kilometers per hours" width="90"></e-grid-column>
+        <e-grid-column field="Miss_Distance_In_Kilometers" headerText="Miss distance in kilometers" width="110"></e-grid-column>
+    </e-grid-columns>
+</ejs-grid>*@
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script>
+    $('#submit').on('click', function () {
+        var eventName = $('#events').val();
+        var eventDate = $('#startDate').val();
+
+        if (eventName == "" || eventDate == "") {
+            confirm("Please set an event name and/or a date");
+        }
+        //$.ajax({
+        //    type: "POST",
+        //    url: "/Demo?handler=Send",
+        //    contentType: "application/json; charset=utf-8",
+        //    dataType: "json",
+        //    success: function (response) {
+        //        var dvItems = $("#dvPostItems");
+        //        dvItems.empty();
+        //        $.each(response, function (i, item) {
+        //            var $tr = $('<li>').append(item).appendTo(dvItems);
+        //        });
+        //    },
+        //    failure: function (response) {
+        //        alert(response);
+        //    }
+        //});
+    })
+</script>
