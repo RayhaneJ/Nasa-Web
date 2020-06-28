@@ -7,11 +7,6 @@ a.navbar-brand {
     word-break: break-all;
 }
 
-header {
-    /*margin-bottom:1%;*/
-    position: relative;
-    z-index: 10;
-}
 
 .navbar-light .navbar-nav .nav-link {
     color: white;
@@ -79,10 +74,12 @@ button.accept-policy {
 
 /* Sticky footer styles
 -------------------------------------------------- */
-html {
-    position: relative;
-    min-height: 100%;
+html,
+body {
+    height: 100%;
+    margin: 0;
 }
+
 
 .figure {
     margin-top: 2%;
@@ -97,6 +94,13 @@ html {
 }
 
 
+header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
 .footer {
     position: absolute;
     bottom: 0;
@@ -106,3 +110,34 @@ html {
 }
 
 
+        
+.box {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+.box .row {
+  border: 1px dotted grey;
+  margin-right:0;
+  margin-left:0;
+}
+
+.box .row.header {
+  flex: 0 1 auto;
+}
+
+.box .row.content {
+  display: flex;
+  flex-flow: column;
+  flex: 1 1 auto;
+  overflow-y: auto;
+}
+
+.box .row.footer {
+  flex: 0 1 40px;
+}
+
+.navbar{
+    width:100%
+}

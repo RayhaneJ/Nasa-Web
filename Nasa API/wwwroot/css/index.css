@@ -1,6 +1,5 @@
 ﻿body {
     /* Margin bottom by footer height */
-    margin-bottom: 60px;
     background-image: url(../Assets/space.jpg);
     /* Background image is centered vertically and horizontally at all times */
     background-position: center center;

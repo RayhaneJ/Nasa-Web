@@ -107,9 +107,9 @@ D:\Yanis\Rayhane\Nouveau dossier\VisualStudio\Nasa API\Nasa API\bin\Debug\netcor
 D:\Yanis\Rayhane\Nouveau dossier\VisualStudio\Nasa API\Nasa API\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\Yanis\Rayhane\Nouveau dossier\VisualStudio\Nasa API\Nasa API\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\Yanis\Rayhane\Nouveau dossier\VisualStudio\Nasa API\Nasa API\obj\Debug\netcoreapp3.1\Razor\Pages\Asteroids.cshtml.g.cs
-D:\Yanis\Rayhane\Nouveau dossier\VisualStudio\Nasa API\Nasa API\obj\Debug\netcoreapp3.1\Nasa API.csproj.CoreCompileInputs.cache
-D:\Yanis\Rayhane\Nouveau dossier\VisualStudio\Nasa API\Nasa API\obj\Debug\netcoreapp3.1\Nasa API.MvcApplicationPartsAssemblyInfo.cs
-D:\Yanis\Rayhane\Nouveau dossier\VisualStudio\Nasa API\Nasa API\obj\Debug\netcoreapp3.1\Nasa API.MvcApplicationPartsAssemblyInfo.cache
 D:\Yanis\Rayhane\Nouveau dossier\VisualStudio\Nasa API\Nasa API\bin\Debug\netcoreapp3.1\Syncfusion.EJ2.dll
 D:\Yanis\Rayhane\Nouveau dossier\VisualStudio\Nasa API\Nasa API\bin\Debug\netcoreapp3.1\Syncfusion.Licensing.dll
 D:\Yanis\Rayhane\Nouveau dossier\VisualStudio\Nasa API\Nasa API\obj\Debug\netcoreapp3.1\Razor\Pages\Donki.cshtml.g.cs
+D:\Yanis\Rayhane\Nouveau dossier\VisualStudio\Nasa API\Nasa API\obj\Debug\netcoreapp3.1\Nasa API.csproj.CoreCompileInputs.cache
+D:\Yanis\Rayhane\Nouveau dossier\VisualStudio\Nasa API\Nasa API\obj\Debug\netcoreapp3.1\Nasa API.MvcApplicationPartsAssemblyInfo.cs
+D:\Yanis\Rayhane\Nouveau dossier\VisualStudio\Nasa API\Nasa API\obj\Debug\netcoreapp3.1\Nasa API.MvcApplicationPartsAssemblyInfo.cache

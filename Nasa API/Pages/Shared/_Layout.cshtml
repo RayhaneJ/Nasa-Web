@@ -11,41 +11,46 @@
 
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-transparent shadow-lg">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">API World</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item text-white">
-                            <a class="nav-link" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                        <li class="nav-item text-white">
-                            <a class="nav-link" asp-area="" asp-page="/Asteroids">Asteroids</a>
-                        </li>
-                        <li class="nav-item text-white">
-                            <a class="nav-link" asp-area="" asp-page="/Donki">Space Weather</a>
-                        </li>
-                        <li class="nav-item text-white">
-                            <a class="nav-link" asp-area="" asp-page="/Privacy">Privacy</a>
-                        </li>
-                    </ul>
+    <div class="box">
+        <div class="row header">
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-transparent shadow-lg">
+                <div class="container">
+                    <a class="navbar-brand" asp-area="" asp-page="/Index">API World</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item text-white">
+                                <a class="nav-link" asp-area="" asp-page="/Index">Home</a>
+                            </li>
+                            <li class="nav-item text-white">
+                                <a class="nav-link" asp-area="" asp-page="/Asteroids">Asteroids</a>
+                            </li>
+                            <li class="nav-item text-white">
+                                <a class="nav-link" asp-area="" asp-page="/Donki">Space Weather</a>
+                            </li>
+                            <li class="nav-item text-white">
+                                <a class="nav-link" asp-area="" asp-page="/Privacy">Privacy</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>
-    </header>
-
-    @RenderBody()
-
-    <footer class="footer text-muted shadow">
-        <div class="container">
-            &copy; 2020 - API World - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            </nav>
         </div>
-    </footer>
+        <div class="row content">
+            @RenderBody()
+        </div>
+        <div class="row footer">
+            <div class="container ">
+                &copy; 2020 - API World - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            </div>
+        </div>
+    </div>
+
+
+
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

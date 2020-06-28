@@ -7,53 +7,37 @@
 
 <link rel="stylesheet" href="~/css/donki.css" />
 
+
+
 <div class="card">
     <div class="card-body shadow">
         <div id="container">
-            <ejs-dropdownlist id="events" width="200" placeholder="Select event name" popupWidth="250" dataSource="@donkiEvents">            </ejs-dropdownlist>
-            <ejs-datepicker id="startDate" width="150" placeholder="Select event date"></ejs-datepicker>
+            <ejs-dropdownlist id="events" width="200" placeholder="Event name" popupWidth="250" dataSource="@donkiEvents"></ejs-dropdownlist>
+            <ejs-datepicker id="eventDate" format="yyyy-MM-dd" width="150" placeholder="Event date"></ejs-datepicker>
+            <ejs-button id="submit" content="Search" cssClass="e-small"></ejs-button>
         </div>
-        <ejs-button id="submit" content="Search" cssClass="e-small"></ejs-button>
-
     </div>
 </div>
+<ejs-progressbar id="progressBar" type='Circular' height='80' minimum="0" maximum="100"
+                 value=20 isIndeterminate="true">
+    <e-progressbar-animation enable=true duration=500 delay=0></e-progressbar-animation>
+</ejs-progressbar>
+@*<ejs-grid id="cmeEventsGrid" allowSorting="true" allowFiltering="true" allowExcelExport="true" toolbarClick="toolbarClick" toolbar="@(new List<string>() { "ExcelExport", "PdfExport" })" allowPdfExport="true">
+        <e-grid-columns>
+            <e-grid-column field="ActivityID" headerText="Activity ID" textAlign="Left" width="90"></e-grid-column>
+            <e-grid-column field="Catalog" headerText="Catalog" width="90"></e-grid-column>
+            <e-grid-column field="StartTime" headerText="Start time" width="160" textAlign="Left"></e-grid-column>
+            <e-grid-column field="SourceLocation" headerText="Source location" width="80"></e-grid-column>
+            <e-grid-column field="Url" headerText="Diameter in meters" width="80"></e-grid-column>
+            <e-grid-column field="Note" headerText="Note" width="90"></e-grid-column>
+            <e-grid-column field="Latitude" headerText="Latitude" width="110"></e-grid-column>
+            <e-grid-column field="Longitude" headerText="Longitude" width="110"></e-grid-column>
+            <e-grid-column field="Speed" headerText="Speed" width="110"></e-grid-column>
+            <e-grid-column field="Type" headerText="Type" width="110"></e-grid-column>
+        </e-grid-columns>
+    </ejs-grid>*@
 
-@*<ejs-grid id="Grid" allowSorting="true" allowFiltering="true" allowExcelExport="true" toolbarClick="toolbarClick" toolbar="@(new List<string>() { "ExcelExport", "PdfExport" })" allowPdfExport="true">
-    <e-grid-columns>
-        <e-grid-column field="Id" headerText="Nasa Id" textAlign="Left" width="90"></e-grid-column>
-        <e-grid-column field="Name" headerText="Name" width="90"></e-grid-column>
-        <e-grid-column field="Url" template="#template" headerText="Official web site" width="160" textAlign="Left"></e-grid-column>
-        <e-grid-column field="Magnitude" headerText="Magnitude" width="80"></e-grid-column>
-        <e-grid-column field="Diameter_In_Meters" headerText="Diameter in meters" width="80"></e-grid-column>
-        <e-grid-column field="Kilometers_Per_Second" headerText="Kilometers per hours" width="90"></e-grid-column>
-        <e-grid-column field="Miss_Distance_In_Kilometers" headerText="Miss distance in kilometers" width="110"></e-grid-column>
-    </e-grid-columns>
-</ejs-grid>*@
 
 <script src="~/lib/jquery/dist/jquery.js"></script>
-<script>
-    $('#submit').on('click', function () {
-        var eventName = $('#events').val();
-        var eventDate = $('#startDate').val();
+<script src="~/js/donki.js" asp-append-version="true"></script>
 
-        if (eventName == "" || eventDate == "") {
-            confirm("Please set an event name and/or a date");
-        }
-        //$.ajax({
-        //    type: "POST",
-        //    url: "/Demo?handler=Send",
-        //    contentType: "application/json; charset=utf-8",
-        //    dataType: "json",
-        //    success: function (response) {
-        //        var dvItems = $("#dvPostItems");
-        //        dvItems.empty();
-        //        $.each(response, function (i, item) {
-        //            var $tr = $('<li>').append(item).appendTo(dvItems);
-        //        });
-        //    },
-        //    failure: function (response) {
-        //        alert(response);
-        //    }
-        //});
-    })
-</script>
