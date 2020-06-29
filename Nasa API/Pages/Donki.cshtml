@@ -7,37 +7,51 @@
 
 <link rel="stylesheet" href="~/css/donki.css" />
 
-
-
 <div class="card">
     <div class="card-body shadow">
         <div id="container">
             <ejs-dropdownlist id="events" width="200" placeholder="Event name" popupWidth="250" dataSource="@donkiEvents"></ejs-dropdownlist>
-            <ejs-datepicker id="eventDate" format="yyyy-MM-dd" width="150" placeholder="Event date"></ejs-datepicker>
+            <ejs-datepicker id="eventDate" format="yyyy-MM-dd" width="200" placeholder="Event date"></ejs-datepicker>
             <ejs-button id="submit" content="Search" cssClass="e-small"></ejs-button>
         </div>
     </div>
 </div>
-<ejs-progressbar id="progressBar" type='Circular' height='80' minimum="0" maximum="100"
+
+<div class="" id="target" style="overflow:auto">
+    <ejs-dialog id="dialog" width="400px" target="#target"
+                showCloseIcon="true" header="Cannot find event">
+        <e-dialog-animationsettings effect="Zoom"></e-dialog-animationsettings>
+        <e-content-template>
+            <div class='dialog-content'>
+                <div class='msg-wrapper  col-lg-12'>
+                    <span class='error-msg col-lg-10'>Cannot find an event from this type during this date</span>
+                </div><div class='error-detail col-lg-8'><span>Specify a different date</span> </div>
+            </div>
+        </e-content-template>
+    </ejs-dialog>
+</div>
+
+
+<ejs-progressbar id="progressBar" type='Circular' height='80' minimum="0" style="overflow:auto" maximum="100"
                  value=20 isIndeterminate="true">
     <e-progressbar-animation enable=true duration=500 delay=0></e-progressbar-animation>
 </ejs-progressbar>
-@*<ejs-grid id="cmeEventsGrid" allowSorting="true" allowFiltering="true" allowExcelExport="true" toolbarClick="toolbarClick" toolbar="@(new List<string>() { "ExcelExport", "PdfExport" })" allowPdfExport="true">
-        <e-grid-columns>
-            <e-grid-column field="ActivityID" headerText="Activity ID" textAlign="Left" width="90"></e-grid-column>
-            <e-grid-column field="Catalog" headerText="Catalog" width="90"></e-grid-column>
-            <e-grid-column field="StartTime" headerText="Start time" width="160" textAlign="Left"></e-grid-column>
-            <e-grid-column field="SourceLocation" headerText="Source location" width="80"></e-grid-column>
-            <e-grid-column field="Url" headerText="Diameter in meters" width="80"></e-grid-column>
-            <e-grid-column field="Note" headerText="Note" width="90"></e-grid-column>
-            <e-grid-column field="Latitude" headerText="Latitude" width="110"></e-grid-column>
-            <e-grid-column field="Longitude" headerText="Longitude" width="110"></e-grid-column>
-            <e-grid-column field="Speed" headerText="Speed" width="110"></e-grid-column>
-            <e-grid-column field="Type" headerText="Type" width="110"></e-grid-column>
-        </e-grid-columns>
-    </ejs-grid>*@
+
+<ejs-grid id="cmeEventsGrid" allowSorting="true" allowFiltering="true" allowExcelExport="true" toolbarClick="toolbarClick" toolbar="@(new List<string>() { "ExcelExport", "PdfExport" })" allowPdfExport="true">
+    <e-grid-columns>
+        <e-grid-column field="ActivityID" headerText="Activity ID" textAlign="Left" width="90"></e-grid-column>
+        <e-grid-column field="Catalog" headerText="Catalog" width="90"></e-grid-column>
+        <e-grid-column field="StartTime" headerText="Start time" width="160" textAlign="Left"></e-grid-column>
+        <e-grid-column field="SourceLocation" headerText="Source location" width="80"></e-grid-column>
+        <e-grid-column field="Url" headerText="Diameter in meters" width="80"></e-grid-column>
+        <e-grid-column field="Note" headerText="Note" width="90"></e-grid-column>
+        <e-grid-column field="Latitude" headerText="Latitude" width="110"></e-grid-column>
+        <e-grid-column field="Longitude" headerText="Longitude" width="110"></e-grid-column>
+        <e-grid-column field="Speed" headerText="Speed" width="110"></e-grid-column>
+        <e-grid-column field="Type" headerText="Type" width="110"></e-grid-column>
+    </e-grid-columns>
+</ejs-grid>
 
 
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script src="~/js/donki.js" asp-append-version="true"></script>
-

@@ -30,7 +30,7 @@ namespace Nasa_API
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MjUxNzQ0QDMxMzgyZTMxMmUzMEtndVlMY3hrWXdxOTNraGZJWTJvcGdJazRjKzhjOVFTWlU5VDlmdnhhalk9");
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mjc4MDU1QDMxMzgyZTMxMmUzMGFFaG5HcmZSenp6M2I4Tzl4NWIzRkpURW9Ua2JTdE95bjRBbmJKZWt6N1U9");
 
             if (env.IsDevelopment())
             {

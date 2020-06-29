@@ -60,6 +60,8 @@ span {
     border-radius: 3px/6px;
 }
 
+
+
 #content {
     position: fixed;
     top: 8%;
@@ -69,9 +71,95 @@ span {
     overflow: auto;
 }
 
+.box .row.footer {
+    flex: 0 1 40px;
+    background-color: white;
+}
+
 #progressBar {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -125%);
+    margin: 0;
+    position: absolute;
+    top: 41%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+@media (max-width: 768px) {
+    #container {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 3%;
+        /* flex-direction: column; */
+        background: #F2F2F2;
+        /* margin-left: 50%; */
+        margin-right: 50%;
+        border: 1px solid #ccc;
+        box-shadow: 1px 1px 2px #fff inset, -1px -1px 2px #fff inset;
+        border-radius: 3px/6px;
+    }
+}
+
+#dialog {
+    margin: 0;
+    position: absolute;
+}
+
+.control-section {
+    padding-left: 10px;
+}
+
+#target{
+    height:95%;
+}
+
+span.close-icon {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    display: inline-block;
+}
+
+span.error-msg {
+    color: #66afe9;
+    display: inline-block;
+    position: relative;
+}
+
+.error-detail.col-lg-8 {
+    position: relative;
+    left: 45px;
+    margin: 20px 0px 21px;
+}
+
+.e-icons.close-icon.col-lg-2:before {
+    content: '\e7e9';
+    font-size: 26px;
+    color: #d9534f;
+    position: relative;
+    left: -12px;
+}
+
+.e-dialog .e-footer-content {
+    background-color: #f8f8f8;
+}
+
+.e-dialog.e-control.e-popup, .e-dialog.e-control.e-popup .e-dlg-header-content {
+    background-color: #d9edf7;
+}
+
+.e-dialog.e-control.e-popup {
+    padding: 3px;
+}
+
+.e-dialog.e-control .e-dlg-header-content {
+    padding: 10px;
+}
+
+.e-dialog.e-control .e-footer-content {
+    padding: 8px 12px;
+}
+
+.e-dialog.e-control .e-dlg-content {
+    padding: 15px 0px 0px;
 }

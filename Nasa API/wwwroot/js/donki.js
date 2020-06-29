@@ -1,30 +1,39 @@
 ﻿$('#submit').on('click', function () {
-    var startDate = new Date($('#eventDate').val());
-    startDate.setDate(startDate.getDate() - 30);
-    startDate = startDate.toISOString().substring(0, 10);
 
-    var endDate = $('#eventDate').val();
-    var eventName = dropdownEventNameToUrl($('#events').val());
-    console.log(eventName);
+    var dialogObj = document.getElementById('dialog').ej2_instances[0];
+    dialogObj.show();
+    //$("#progressBar").show();
 
-    if (eventName == "" || eventDate == "") {
-        confirm("Please set an event name and/or a date");
-    }
-    $.ajax({
-        type: "GET",
-        url: "https://api.nasa.gov/DONKI/" + eventName + "?startDate=" + startDate + "&endDate=" + endDate + "&api_key=qkWghemh2AKBBDaAIw9XEx8IMVPoSrB5p9V7McSN",
-        dataType: "json",
-        success: function (response) {
-            if (response != null) {
-                let eventObjects = jsonResponseToDataGridList(response, eventName);
-                var grid = document.getElementById("Grid").ej2_instances[0];
-                grid.dataSource = eventObjects;
-            }
-        },
-        failure: function (response) {
-            alert(response);
-        }
-    });
+    //var startDate = new Date($('#eventDate').val());
+    //startDate.setDate(startDate.getDate() - 30);
+    //startDate = startDate.toISOString().substring(0, 10);
+
+    //var endDate = $('#eventDate').val();
+    //var eventName = dropdownEventNameToUrl($('#events').val());
+
+    //if (eventName == "" || eventDate == "") {
+    //    confirm("Please set an event name and/or a date");
+    //}
+    //$.ajax({
+    //    type: "GET",
+    //    url: "https://api.nasa.gov/DONKI/" + eventName + "?startDate=" + startDate + "&endDate=" + endDate + "&api_key=qkWghemh2AKBBDaAIw9XEx8IMVPoSrB5p9V7McSN",
+    //    dataType: "json",
+    //    success: function (response) {
+    //        if (response != null) {
+    //            let eventObjects = jsonResponseToDataGridList(response, eventName);
+    //            var grid = document.getElementById("cmeEventsGrid").ej2_instances[0];
+    //            grid.dataSource = eventObjects;
+
+    //            $("#cmeEventsGrid").show();
+    //            $("#progressBar").hide();
+    //        }
+    //        else {
+    //        }
+    //    },
+    //    failure: function (response) {
+    //        alert(response);
+    //    }
+    //});
 })
 
 
@@ -112,4 +121,6 @@ function dropdownEventNameToUrl(eventName) {
 
 $('document').ready(function () {
     $("#cmeEventsGrid").hide();
+    $("#progressBar").show();
+    $("#target").hide();
 });
