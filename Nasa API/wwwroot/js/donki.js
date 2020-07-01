@@ -1,40 +1,63 @@
-﻿$('#submit').on('click', function () {
+﻿var dialog = {};
 
-    var dialogObj = document.getElementById('dialog').ej2_instances[0];
-    dialogObj.show();
-    //$("#progressBar").show();
+$('#submit').on('click', function () {
+    if (dialog.isVisible == true) {
+        $("#target").hide();
+        var dialogObj = document.getElementById('dialog').ej2_instances[0];
+        dialogObj.hide();
 
-    //var startDate = new Date($('#eventDate').val());
-    //startDate.setDate(startDate.getDate() - 30);
-    //startDate = startDate.toISOString().substring(0, 10);
+        dialog.isVisible == false;
+    }
 
-    //var endDate = $('#eventDate').val();
-    //var eventName = dropdownEventNameToUrl($('#events').val());
+    var endDate = $('#eventDate').val();
+    var eventName = dropdownEventNameToUrl($('#events').val());
 
-    //if (eventName == "" || eventDate == "") {
-    //    confirm("Please set an event name and/or a date");
-    //}
-    //$.ajax({
-    //    type: "GET",
-    //    url: "https://api.nasa.gov/DONKI/" + eventName + "?startDate=" + startDate + "&endDate=" + endDate + "&api_key=qkWghemh2AKBBDaAIw9XEx8IMVPoSrB5p9V7McSN",
-    //    dataType: "json",
-    //    success: function (response) {
-    //        if (response != null) {
-    //            let eventObjects = jsonResponseToDataGridList(response, eventName);
-    //            var grid = document.getElementById("cmeEventsGrid").ej2_instances[0];
-    //            grid.dataSource = eventObjects;
+    if (eventName == "" || endDate == "") {
+        $("#target").show();
+        var dialogObj = document.getElementById('dialog').ej2_instances[0];
+        dialogObj.show();
+    }
+    else {
+        $("#progressBar").show();
 
-    //            $("#cmeEventsGrid").show();
-    //            $("#progressBar").hide();
-    //        }
-    //        else {
-    //        }
-    //    },
-    //    failure: function (response) {
-    //        alert(response);
-    //    }
-    //});
+        var startDate = new Date($('#eventDate').val());
+        startDate.setDate(startDate.getDate() - 30);
+        startDate = startDate.toISOString().substring(0, 10);
+
+        $.ajax({
+            type: "GET",
+            url: "https://api.nasa.gov/DONKI/" + eventName + "?startDate=" + startDate + "&endDate=" + endDate + "&api_key=qkWghemh2AKBBDaAIw9XEx8IMVPoSrB5p9V7McSN",
+            dataType: "json",
+            success: function (response) {
+                if (response != null) {
+                    let eventObjects = jsonResponseToDataGridList(response, eventName);
+                    var grid = document.getElementById("cmeEventsGrid").ej2_instances[0];
+                    grid.dataSource = eventObjects;
+
+                    $("#cmeEventsGrid").show();
+                    $("#progressBar").hide();
+                }
+                else {
+                    $("#progressBar").hide();
+                    $("#target").show();
+                    var dialogObj = document.getElementById('dialog').ej2_instances[0];
+                    dialogObj.show();
+                }
+            },
+            error: function (error) {
+                $("#progressBar").hide();
+                $("#target").show();
+                var dialogObj = document.getElementById('dialog').ej2_instances[0];
+                dialogObj.show();
+            },
+            failure: function (response) {
+                $("#progressBar").hide();
+                alert(response);
+            }
+        });
+    }
 })
+
 
 
 function jsonResponseToDataGridList(ajaxResponse, eventName) {
@@ -65,20 +88,30 @@ function cmeEventsAjaxObjectsToDataGridModels(ajaxResponse) {
     } catch (e) {
 
     }
-    
+
     return cmeObjects;
 }
 
 function toolbarClick(args) {
-    var gridObj = document.getElementById("Grid").ej2_instances[0];
-    if (args.item.id === 'Grid_excelexport') {
+    var gridObj = document.getElementById("cmeEventsGrid").ej2_instances[0];
+    if (args.item.id === 'cmeEventsGrid_excelexport') {
+        gridObj.showSpinner();
         gridObj.excelExport();
     }
     else {
-        if (args.item.id === 'Grid_pdfexport') {
+        if (args.item.id === 'cmeEventsGrid_pdfexport') {
+            gridObj.showSpinner();
             gridObj.pdfExport();
         }
     }
+}
+
+function pdfExportComplete(args) {
+    this.hideSpinner();
+}
+
+function excelExportComplete(args) {
+    this.hideSpinner();
 }
 
 function dropdownEventNameToUrl(eventName) {
@@ -120,7 +153,8 @@ function dropdownEventNameToUrl(eventName) {
 }
 
 $('document').ready(function () {
+    dialog.isVisible = false;
     $("#cmeEventsGrid").hide();
-    $("#progressBar").show();
+    $("#progressBar").hide();
     $("#target").hide();
 });

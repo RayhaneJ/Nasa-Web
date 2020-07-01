@@ -34,24 +34,30 @@
 
 <ejs-progressbar id="progressBar" type='Circular' height='80' minimum="0" style="overflow:auto" maximum="100"
                  value=20 isIndeterminate="true">
-    <e-progressbar-animation enable=true duration=500 delay=0></e-progressbar-animation>
+    <e-progressbar-animation enable=true duration=350 delay=0></e-progressbar-animation>
 </ejs-progressbar>
 
-<ejs-grid id="cmeEventsGrid" allowSorting="true" allowFiltering="true" allowExcelExport="true" toolbarClick="toolbarClick" toolbar="@(new List<string>() { "ExcelExport", "PdfExport" })" allowPdfExport="true">
+<ejs-grid id="cmeEventsGrid" allowSorting="true" allowFiltering="true" allowExcelExport="true" toolbarClick="toolbarClick" pdfExportComplete="pdfExportComplete" excelExportComplete="excelExportComplete" toolbar="@(new List<string>() { "ExcelExport", "PdfExport" })" allowPdfExport="true">
     <e-grid-columns>
-        <e-grid-column field="ActivityID" headerText="Activity ID" textAlign="Left" width="90"></e-grid-column>
-        <e-grid-column field="Catalog" headerText="Catalog" width="90"></e-grid-column>
-        <e-grid-column field="StartTime" headerText="Start time" width="160" textAlign="Left"></e-grid-column>
+        <e-grid-column field="ActivityID" headerText="Activity ID" textAlign="Left" width="130"></e-grid-column>
+        <e-grid-column field="Catalog" headerText="Catalog" width="130"></e-grid-column>
+        <e-grid-column field="StartTime" headerText="Start time" width="120" textAlign="Left"></e-grid-column>
         <e-grid-column field="SourceLocation" headerText="Source location" width="80"></e-grid-column>
-        <e-grid-column field="Url" headerText="Diameter in meters" width="80"></e-grid-column>
-        <e-grid-column field="Note" headerText="Note" width="90"></e-grid-column>
-        <e-grid-column field="Latitude" headerText="Latitude" width="110"></e-grid-column>
-        <e-grid-column field="Longitude" headerText="Longitude" width="110"></e-grid-column>
-        <e-grid-column field="Speed" headerText="Speed" width="110"></e-grid-column>
-        <e-grid-column field="Type" headerText="Type" width="110"></e-grid-column>
+        <e-grid-column field="Url" template="#template" headerText="Official web site" width="130"></e-grid-column>
+        <e-grid-column field="Note" headerText="Note" width="130"></e-grid-column>
+        <e-grid-column field="Latitude" headerText="Latitude" width="60"></e-grid-column>
+        <e-grid-column field="Longitude" headerText="Longitude" width="60"></e-grid-column>
+        <e-grid-column field="Speed" headerText="Speed" width="60"></e-grid-column>
+        <e-grid-column field="Type" headerText="Type" width="60"></e-grid-column>
     </e-grid-columns>
 </ejs-grid>
 
 
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script src="~/js/donki.js" asp-append-version="true"></script>
+
+<script id="template" type="text/x-template">
+    <div>
+        <a rel='nofollow' href="${Url}">${Url}</a>
+    </div>
+</script>
