@@ -58,25 +58,31 @@ $('#submit').on('click', function () {
 })
 
 function jsonResponseToDataGridList(ajaxResponse) {
-    console.log(ajaxResponse.near_earth_objects);
     let asteroidsObjects = [];
 
     try {
-        for (const [key, value] of Object.entries(ajaxResponse.near_earth_objects)) {
-            console.log(`${key}: ${value}`);
-        }
-        //ajaxResponse.near_earth_objects.forEach(function (entry) {
-        //    console.log(entry);
-            //entry.forEach(function (asteroid) {
-            //    console.log(asteroid.id);
-                //let asteroidsObjects = {
-                //    ActivityID: entry.activityID, Catalog: entry.catalog, StartTime: entry.startTime,
-                //    SourceLocation: entry.sourceLocation, Url: entry.link, Note: entry.note, Latitude: entry.cmeAnalyses[0].latitude,
-                //    Longitude: entry.cmeAnalyses[0].longitude, Speed: entry.cmeAnalyses[0].speed, Type: entry.cmeAnalyses[0].type
-                //}
-                //cmeObjects.push(cmeObject);
-            //});
-        //});
+        console.log(ajaxResponse);
+        for (var key in ajaxResponse.near_earth_objects) {
+            console.log(key);
+            for (index in ajaxResponse.near_earth_objects[key]) {
+                var propValue = ajaxResponse.near_earth_objects[key][index];
+
+                let minDiameter =  parseInt(propValue.estimated_diameter.meters.estimated_diameter_min);
+                let maxDiameter =  parseInt(propValue.estimated_diameter.meters.estimated_diameter_max);
+                let avgDiameter = (minDiameter + maxDiameter) / 2;
+
+                let name = propValue.name.replace("(", "");
+                let name = propValue.name.replace(")", "");
+
+                 let asteroidObject = {
+                     Id: propValue.id, Name: name,
+                     Url: propValue.nasa_jpl_url, Magnitude: propValue.absolute_magnitude_h, 
+                     Diameter: avgDiameter, Speed: propValue.close_approach_data[0].relative_velocity.kilometers_per_hour,
+                     MissDistance: propValue.close_approach_data[0].miss_distance.kilometers
+                }
+                asteroidsObjects.push(asteroidObject);
+                }
+            }
     } catch (e) {
 
     }
@@ -113,3 +119,4 @@ $('document').ready(function () {
     $("#progressBar").hide();
     $("#target").hide();
 });
+
