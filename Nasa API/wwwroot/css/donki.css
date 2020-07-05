@@ -163,3 +163,13 @@ span.error-msg {
 .e-dialog.e-control .e-dlg-content {
     padding: 15px 0px 0px;
 }
+
+.border-top {
+    border-top: 1px solid #e0e0e0 !important;
+}
+
+.e-pager .e-currentitem, .e-pager .e-currentitem:hover {
+    background: #004b85;
+    color: #fff;
+    opacity: 1;
+}

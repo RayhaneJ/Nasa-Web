@@ -176,3 +176,13 @@ a {
 .navbar-light .navbar-brand {
     color: black !important
 }
+
+.border-top {
+    border-top: 1px solid #e0e0e0 !important;
+}
+
+.e-pager .e-currentitem, .e-pager .e-currentitem:hover {
+    background: #004b85;
+    color: #fff;
+    opacity: 1;
+}

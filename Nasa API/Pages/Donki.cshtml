@@ -19,7 +19,7 @@
 
 <div class="" id="target" style="overflow:auto">
     <ejs-dialog id="dialog" width="400px" target="#target"
-                showCloseIcon="true" header="Cannot find event">
+                showCloseIcon="true" header="Cannot find event" >
         <e-dialog-animationsettings effect="Zoom"></e-dialog-animationsettings>
         <e-content-template>
             <div class='dialog-content'>
@@ -34,10 +34,11 @@
 
 <ejs-progressbar id="progressBar" type='Circular' height='80' minimum="0" style="overflow:auto" maximum="100"
                  value=20 isIndeterminate="true">
-    <e-progressbar-animation enable=true duration=350 delay=0></e-progressbar-animation>
+    <e-progressbar-animation enable=true duration=2000 delay=0></e-progressbar-animation>
 </ejs-progressbar>
 
-<ejs-grid id="cmeEventsGrid" allowSorting="true" allowFiltering="true" allowExcelExport="true" toolbarClick="toolbarClick" pdfExportComplete="pdfExportComplete" excelExportComplete="excelExportComplete" toolbar="@(new List<string>() { "ExcelExport", "PdfExport" })" allowPdfExport="true">
+<ejs-grid id="cmeEventsGrid" allowSorting="true" allowFiltering="true" allowExcelExport="true" allowPaging="true" toolbarClick="toolbarClick" pdfExportComplete="pdfExportComplete" excelExportComplete="excelExportComplete" toolbar="@(new List<string>() { "ExcelExport", "PdfExport", "Print", "Search" })" allowPdfExport="true">
+    <e-grid-pagesettings pageSize="10"></e-grid-pagesettings>
     <e-grid-columns>
         <e-grid-column field="ActivityID" headerText="Activity ID" textAlign="Left" width="130"></e-grid-column>
         <e-grid-column field="Catalog" headerText="Catalog" width="130"></e-grid-column>

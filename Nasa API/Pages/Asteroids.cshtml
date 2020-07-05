@@ -2,7 +2,6 @@
 @model Nasa_API.Pages.AsteroidsModel
 @{
     ViewData["Title"] = "Asteroids";
-    IList<NasaAsteroid> nasaAsteroids = (List<NasaAsteroid>)TempData["NasaAsteroids"];
 }
 
 <link rel="stylesheet" href="~/css/asteroids.css" />
@@ -33,18 +32,19 @@
 
 <ejs-progressbar id="progressBar" type='Circular' height='80' minimum="0" style="overflow:auto" maximum="100"
                  value=20 isIndeterminate="true">
-    <e-progressbar-animation enable=true duration=350 delay=0></e-progressbar-animation>
+    <e-progressbar-animation enable=true duration=2000 delay=0></e-progressbar-animation>
 </ejs-progressbar>
 
-<ejs-grid id="asteroidsGrid" excelExportComplete="excelExportComplete" pdfExportComplete="pdfExportComplete" allowSorting="true" allowFiltering="true" allowExcelExport="true" toolbarClick="toolbarClick" toolbar="@(new List<string>() { "ExcelExport", "PdfExport" })" allowPdfExport="true">
+<ejs-grid id="asteroidsGrid"  allowPaging="true" excelExportComplete="excelExportComplete" pdfExportComplete="pdfExportComplete" allowSorting="true" allowFiltering="true" allowExcelExport="true" toolbarClick="toolbarClick" toolbar="@(new List<string>() { "ExcelExport", "PdfExport", "Print" })" allowPdfExport="true">
+    <e-grid-pagesettings pageSize="10"></e-grid-pagesettings>
     <e-grid-columns>
-        <e-grid-column field="Id" headerText="Nasa Id" textAlign="Left" width="90"></e-grid-column>
-        <e-grid-column field="Name" headerText="Name" width="90"></e-grid-column>
-        <e-grid-column field="Url" template="#template" headerText="Official web site" width="160" textAlign="Left"></e-grid-column>
-        <e-grid-column field="Magnitude" headerText="Magnitude" width="80"></e-grid-column>
-        <e-grid-column field="Diameter" headerText="Diameter in meters" width="80"></e-grid-column>
-        <e-grid-column field="Speed" headerText="Kilometers per hours" width="90"></e-grid-column>
-        <e-grid-column field="MissDistance" headerText="Miss distance in kilometers" width="110"></e-grid-column>
+        <e-grid-column field="Id" headerText="Nasa Id" textAlign="Left" width="50"></e-grid-column>
+        <e-grid-column field="Name" headerText="Name" width="60"></e-grid-column>
+        <e-grid-column field="Url" template="#template" headerText="Official web site" width="80" textAlign="Left"></e-grid-column>
+        <e-grid-column field="Magnitude" headerText="Magnitude" width="40"></e-grid-column>
+        <e-grid-column field="Diameter" headerText="Diameter in meters" width="40"></e-grid-column>
+        <e-grid-column field="Speed" headerText="Kilometers per hours" width="40"></e-grid-column>
+        <e-grid-column field="MissDistance" headerText="Miss distance in kilometers" width="45"></e-grid-column>
     </e-grid-columns>
 </ejs-grid>
 

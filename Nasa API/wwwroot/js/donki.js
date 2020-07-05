@@ -1,6 +1,8 @@
 ﻿var dialog = {};
 
 $('#submit').on('click', function () {
+    $("#cmeEventsGrid").hide();
+
     if (dialog.isVisible == true) {
         $("#target").hide();
         var dialogObj = document.getElementById('dialog').ej2_instances[0];

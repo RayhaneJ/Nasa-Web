@@ -1,6 +1,8 @@
 ﻿var dialog = {};
 
 $('#submit').on('click', function () {
+    $("#asteroidsGrid").hide();
+
     if (dialog.isVisible == true) {
         $("#target").hide();
         var dialogObj = document.getElementById('dialog').ej2_instances[0];
@@ -61,9 +63,7 @@ function jsonResponseToDataGridList(ajaxResponse) {
     let asteroidsObjects = [];
 
     try {
-        console.log(ajaxResponse);
         for (var key in ajaxResponse.near_earth_objects) {
-            console.log(key);
             for (index in ajaxResponse.near_earth_objects[key]) {
                 var propValue = ajaxResponse.near_earth_objects[key][index];
 
@@ -72,13 +72,16 @@ function jsonResponseToDataGridList(ajaxResponse) {
                 let avgDiameter = (minDiameter + maxDiameter) / 2;
 
                 let name = propValue.name.replace("(", "");
-                let name = propValue.name.replace(")", "");
+                name = name.replace(")", "");
+
+                let speed = propValue.close_approach_data[0].relative_velocity.kilometers_per_hour.substr(0, propValue.close_approach_data[0].relative_velocity.kilometers_per_hour.indexOf('.')); 
+                let missDistance = propValue.close_approach_data[0].miss_distance.kilometers.substr(0, propValue.close_approach_data[0].miss_distance.kilometers.indexOf('.')); 
 
                  let asteroidObject = {
                      Id: propValue.id, Name: name,
                      Url: propValue.nasa_jpl_url, Magnitude: propValue.absolute_magnitude_h, 
-                     Diameter: avgDiameter, Speed: propValue.close_approach_data[0].relative_velocity.kilometers_per_hour,
-                     MissDistance: propValue.close_approach_data[0].miss_distance.kilometers
+                     Diameter: avgDiameter, Speed: speed,
+                     MissDistance: missDistance
                 }
                 asteroidsObjects.push(asteroidObject);
                 }
