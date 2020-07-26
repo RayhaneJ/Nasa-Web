@@ -113,3 +113,4 @@ D:\Yanis\Rayhane\Nouveau dossier\VisualStudio\Nasa API\Nasa API\obj\Debug\netcor
 D:\Yanis\Rayhane\Nouveau dossier\VisualStudio\Nasa API\Nasa API\obj\Debug\netcoreapp3.1\Nasa API.csproj.CoreCompileInputs.cache
 D:\Yanis\Rayhane\Nouveau dossier\VisualStudio\Nasa API\Nasa API\obj\Debug\netcoreapp3.1\Nasa API.MvcApplicationPartsAssemblyInfo.cs
 D:\Yanis\Rayhane\Nouveau dossier\VisualStudio\Nasa API\Nasa API\obj\Debug\netcoreapp3.1\Nasa API.MvcApplicationPartsAssemblyInfo.cache
+D:\Yanis\Rayhane\Nouveau dossier\VisualStudio\Nasa API\Nasa API\obj\Debug\netcoreapp3.1\Razor\Pages\EarthObservation.cshtml.g.cs
